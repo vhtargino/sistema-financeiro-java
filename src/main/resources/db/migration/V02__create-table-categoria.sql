@@ -1,0 +1,8 @@
+CREATE TABLE categoria (
+
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(20) NOT NULL,
+    ativo TINYINT DEFAULT 1,
+    PRIMARY KEY(id)
+
+);
