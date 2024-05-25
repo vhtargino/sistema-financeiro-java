@@ -1,8 +1,8 @@
 package fin.service.api.controller;
 
-import fin.service.api.categoria.CategoriaRepository;
-import fin.service.api.lancamento.*;
-import fin.service.api.pessoa.PessoaRepository;
+import fin.service.api.domain.categoria.CategoriaRepository;
+import fin.service.api.domain.lancamento.*;
+import fin.service.api.domain.pessoa.PessoaRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +55,7 @@ public class LancamentoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemLancamento>> listar(@PageableDefault(size=10, sort={"nome"}) Pageable paginacao) {
+    public ResponseEntity<Page<DadosListagemLancamento>> listar(@PageableDefault(size=10, sort={"id"}) Pageable paginacao) {
         var page = repository.findByAtivoTrue(paginacao).map(DadosListagemLancamento::new);
 
         return ResponseEntity.ok(page);
@@ -77,5 +77,14 @@ public class LancamentoController {
         lancamento.excluir();
 
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var lancamento = repository.getReferenceById(id);
+
+        var dto = new DadosDetalhamentoLancamento(lancamento);
+
+        return ResponseEntity.ok(dto);
     }
 }

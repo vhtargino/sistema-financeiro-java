@@ -1,4 +1,4 @@
-package fin.service.api.lancamento;
+package fin.service.api.domain.lancamento;
 
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;

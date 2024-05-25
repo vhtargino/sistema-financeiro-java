@@ -1,6 +1,7 @@
 package fin.service.api.controller;
 
-import fin.service.api.categoria.*;
+import fin.service.api.domain.categoria.*;
+import fin.service.api.domain.lancamento.DadosDetalhamentoLancamento;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,14 @@ public class CategoriaController {
         categoria.excluir();
 
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var categoria = repository.getReferenceById(id);
+
+        var dto = new DadosDetalhamentoCategoria(categoria);
+
+        return ResponseEntity.ok(dto);
     }
 }

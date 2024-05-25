@@ -1,13 +1,11 @@
-package fin.service.api.categoria;
+package fin.service.api.domain.categoria;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.http.ResponseEntity;
 
 @Table(name = "categoria")
 @Entity(name = "Categoria")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")

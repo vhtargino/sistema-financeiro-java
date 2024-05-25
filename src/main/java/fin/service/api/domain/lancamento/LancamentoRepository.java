@@ -1,4 +1,4 @@
-package fin.service.api.lancamento;
+package fin.service.api.domain.lancamento;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

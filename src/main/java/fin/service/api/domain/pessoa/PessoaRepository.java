@@ -1,4 +1,4 @@
-package fin.service.api.pessoa;
+package fin.service.api.domain.pessoa;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

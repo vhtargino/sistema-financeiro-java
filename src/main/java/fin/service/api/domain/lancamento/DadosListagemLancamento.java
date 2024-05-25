@@ -1,10 +1,7 @@
-package fin.service.api.lancamento;
-
-import fin.service.api.pessoa.Pessoa;
+package fin.service.api.domain.lancamento;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 public record DadosListagemLancamento(Long id,
                                           String descricao,

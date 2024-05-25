@@ -1,4 +1,4 @@
-package fin.service.api.categoria;
+package fin.service.api.domain.categoria;
 
 public record DadosDetalhamentoCategoria(Long id, String nome) {
 

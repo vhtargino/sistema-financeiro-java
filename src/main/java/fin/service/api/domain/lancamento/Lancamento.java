@@ -1,18 +1,16 @@
-package fin.service.api.lancamento;
+package fin.service.api.domain.lancamento;
 
-import fin.service.api.categoria.Categoria;
-import fin.service.api.pessoa.Pessoa;
+import fin.service.api.domain.categoria.Categoria;
+import fin.service.api.domain.pessoa.Pessoa;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Table(name = "lancamento")
 @Entity(name = "Lancamento")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")

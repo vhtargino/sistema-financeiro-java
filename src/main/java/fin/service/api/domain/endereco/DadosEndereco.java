@@ -1,4 +1,4 @@
-package fin.service.api.endereco;
+package fin.service.api.domain.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

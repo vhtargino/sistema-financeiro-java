@@ -1,12 +1,7 @@
-package fin.service.api.lancamento;
-
-import fin.service.api.pessoa.Pessoa;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+package fin.service.api.domain.lancamento;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 public record DadosDetalhamentoLancamento(Long id,
                                           String descricao,

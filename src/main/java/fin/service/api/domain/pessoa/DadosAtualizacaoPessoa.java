@@ -1,6 +1,6 @@
-package fin.service.api.pessoa;
+package fin.service.api.domain.pessoa;
 
-import fin.service.api.endereco.DadosEndereco;
+import fin.service.api.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoPessoa(

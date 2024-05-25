@@ -1,13 +1,12 @@
-package fin.service.api.pessoa;
+package fin.service.api.domain.pessoa;
 
-import fin.service.api.endereco.Endereco;
+import fin.service.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name = "pessoa")
 @Entity(name = "Pessoa")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")

@@ -1,12 +1,12 @@
-package fin.service.api.endereco;
+package fin.service.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Embeddable
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 

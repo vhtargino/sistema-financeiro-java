@@ -1,6 +1,7 @@
 package fin.service.api.controller;
 
-import fin.service.api.pessoa.*;
+import fin.service.api.domain.lancamento.DadosDetalhamentoLancamento;
+import fin.service.api.domain.pessoa.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,14 @@ public class PessoaController {
         pessoa.excluir();
 
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var pessoa = repository.getReferenceById(id);
+
+        var dto = new DadosDetalhamentoPessoa(pessoa);
+
+        return ResponseEntity.ok(dto);
     }
 }

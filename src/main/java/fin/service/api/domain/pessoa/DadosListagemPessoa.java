@@ -1,6 +1,6 @@
-package fin.service.api.pessoa;
+package fin.service.api.domain.pessoa;
 
-import fin.service.api.endereco.Endereco;
+import fin.service.api.domain.endereco.Endereco;
 
 public record DadosListagemPessoa(Long id,
                                   String nome,

@@ -1,4 +1,4 @@
-package fin.service.api.categoria;
+package fin.service.api.domain.categoria;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

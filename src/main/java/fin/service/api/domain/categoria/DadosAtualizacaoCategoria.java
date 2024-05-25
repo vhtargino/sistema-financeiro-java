@@ -1,4 +1,4 @@
-package fin.service.api.categoria;
+package fin.service.api.domain.categoria;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

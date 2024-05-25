@@ -1,12 +1,9 @@
-package fin.service.api.lancamento;
+package fin.service.api.domain.lancamento;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 public record DadosCadastroLancamento(
         @NotBlank String descricao,
