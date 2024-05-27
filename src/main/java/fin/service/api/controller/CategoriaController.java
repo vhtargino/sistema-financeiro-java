@@ -50,7 +50,7 @@ public class CategoriaController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity excluir(Long id) {
+    public ResponseEntity excluir(@PathVariable Long id) {
         var categoria = repository.getReferenceById(id);
         categoria.excluir();
 
