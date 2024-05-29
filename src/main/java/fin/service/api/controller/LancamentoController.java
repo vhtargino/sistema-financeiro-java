@@ -3,6 +3,7 @@ package fin.service.api.controller;
 import fin.service.api.domain.categoria.CategoriaRepository;
 import fin.service.api.domain.lancamento.*;
 import fin.service.api.domain.pessoa.PessoaRepository;
+import fin.service.api.infra.ErrorResponse;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,10 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("lancamentos")
@@ -34,12 +39,23 @@ public class LancamentoController {
 
         var pessoa = pessoaRepository.findByIdAndAtivoTrue(dados.idPessoa());
 
-        if(categoria == null || !categoria.isAtivo()) {
-            return ResponseEntity.badRequest().body("Categoria não encontrada.");
+        boolean categoriaNaoExiste = categoria == null;
+        boolean pessoaNaoExiste = pessoa == null;
+        ErrorResponse erroCategoria = ErrorResponse.mensagemErroCategoria();
+        ErrorResponse erroPessoa = ErrorResponse.mensagemErroPessoa();
+
+        if(categoriaNaoExiste && pessoaNaoExiste) {
+            List<ErrorResponse> erros = Arrays.asList(erroCategoria, erroPessoa);
+
+            return ResponseEntity.badRequest().body(erros);
         }
 
-        if(pessoa == null || !pessoa.isAtivo()) {
-            return ResponseEntity.badRequest().body("Pessoa não encontrada.");
+        if(categoriaNaoExiste) {
+            return ResponseEntity.badRequest().body(erroCategoria);
+        }
+
+        if(pessoaNaoExiste) {
+            return ResponseEntity.badRequest().body(erroPessoa);
         }
 
         var lancamento = new Lancamento(dados);
@@ -67,7 +83,9 @@ public class LancamentoController {
         var lancamento = repository.getReferenceById(dados.id());
         lancamento.atualizarInformacoes(dados);
 
-        return ResponseEntity.ok(new DadosDetalhamentoLancamento(lancamento));
+        var dto = new DadosDetalhamentoLancamento(lancamento);
+
+        return ResponseEntity.ok(dto);
     }
 
     @DeleteMapping("/{id}")
