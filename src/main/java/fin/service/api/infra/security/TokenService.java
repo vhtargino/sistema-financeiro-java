@@ -18,18 +18,19 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
 
+
     public String gerarToken(Usuario usuario) {
+
         try {
             var algoritmo  = Algorithm.HMAC256(secret);
-
             return JWT.create()
                     .withIssuer("API Voll.med")
                     .withSubject(usuario.getLogin())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
-        } catch(JWTCreationException exception) {
+        } catch (JWTCreationException exception){
             throw  new RuntimeException(
-                    "Erro ao gerar o token JWT.", exception);
+                    "Erro ao gerar o token jwt ", exception);
         }
     }
 
@@ -51,4 +52,8 @@ public class TokenService {
         return LocalDateTime.now().plusYears(1).
                 toInstant(ZoneOffset.of("-03:00"));
     }
+
+
 }
+
+

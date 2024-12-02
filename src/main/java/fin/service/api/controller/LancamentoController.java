@@ -4,6 +4,7 @@ import fin.service.api.domain.categoria.CategoriaRepository;
 import fin.service.api.domain.lancamento.*;
 import fin.service.api.domain.pessoa.PessoaRepository;
 import fin.service.api.infra.exception.ErrorResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("lancamentos")
+@SecurityRequirement(name = "bearer-key")
 public class LancamentoController {
 
     @Autowired

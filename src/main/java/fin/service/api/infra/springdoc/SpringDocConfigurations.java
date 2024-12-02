@@ -30,6 +30,6 @@ public class SpringDocConfigurations {
                                 .email("backend@fin.service"))
                         .license(new License()
                                 .name("Apache 2.0")
-                                .url("http://fin.service/api/license")));
+                                .url("http://fin.service/api/licenca")));
     }
 }
