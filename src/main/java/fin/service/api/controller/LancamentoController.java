@@ -3,7 +3,8 @@ package fin.service.api.controller;
 import fin.service.api.domain.categoria.CategoriaRepository;
 import fin.service.api.domain.lancamento.*;
 import fin.service.api.domain.pessoa.PessoaRepository;
-import fin.service.api.infra.ErrorResponse;
+import fin.service.api.infra.exception.ErrorResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping("lancamentos")
+@SecurityRequirement(name = "bearer-key")
 public class LancamentoController {
 
     @Autowired

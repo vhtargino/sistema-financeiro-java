@@ -1,4 +1,4 @@
-package fin.service.api.infra;
+package fin.service.api.infra.exception;
 
 import lombok.Data;
 
